@@ -8,7 +8,7 @@ import dao.ComentarioDao;
 import factory.ComentarioDaoFactory;
 import java.sql.SQLException;
 import java.util.List;
-import modelo.Campaña;
+import modelo.Campana;
 import modelo.Comentario;
 import modelo.Usuario;
 /**
@@ -63,7 +63,7 @@ public class ComentarioRepository {
     public Usuario buscarUsuarioPorId(int usuarioId){
         return comentarioDao.buscarUsuarioPorId(usuarioId);
     }
-    public Campaña buscarCampañaPorId(int campañaId){
+    public Campana buscarCampañaPorId(int campañaId){
         return comentarioDao.buscarCampañaPorId(campañaId);
     }
 }
