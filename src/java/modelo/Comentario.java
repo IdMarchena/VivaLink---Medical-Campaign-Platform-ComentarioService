@@ -11,7 +11,7 @@ public class Comentario {
     private LocalDate fechaCreacion;
     private LocalDate fechaActualizacion;
     private String estado;
-    private Campaña campaña;
+    private Campana campaña;
     
     // Constructores
     public Comentario(String estado,LocalDate fecha) {
@@ -19,7 +19,7 @@ public class Comentario {
         this.estado =estado;
     }
     
-    public Comentario(int id,String contenido,LocalDate fechaCreacion,LocalDate fechaActualizacion,String estado, Campaña campaña) {
+    public Comentario(int id,String contenido,LocalDate fechaCreacion,LocalDate fechaActualizacion,String estado, Campana campaña) {
         this.id=id;
         this.contenido = contenido;
         this.fechaCreacion=fechaCreacion;
@@ -106,14 +106,14 @@ public class Comentario {
     /**
      * @return the campaña
      */
-    public Campaña getCampaña() {
+    public Campana getCampaña() {
         return campaña;
     }
 
     /**
      * @param campaña the campaña to set
      */
-    public void setCampaña(Campaña campaña) {
+    public void setCampaña(Campana campaña) {
         this.campaña = campaña;
     }
 
