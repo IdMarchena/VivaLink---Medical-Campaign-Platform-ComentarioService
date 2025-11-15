@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import modelo.Campaña;
+import modelo.Campana;
 import modelo.Usuario;
 
 public class ComentarioDaoMysql implements ComentarioDao {
@@ -86,7 +86,7 @@ public class ComentarioDaoMysql implements ComentarioDao {
     }
 
     @Override
-    public Campaña buscarCampañaPorId(int id) {
+    public Campana buscarCampañaPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
