@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-import modelo.Campaña;
+import modelo.Campana;
 import modelo.Comentario;
 import modelo.Usuario;
 
@@ -92,7 +92,7 @@ public class ComentarioDaoMongo implements ComentarioDao{
     }
 
     @Override
-    public Campaña buscarCampañaPorId(int id) {
+    public Campana buscarCampañaPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
