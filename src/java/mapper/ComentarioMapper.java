@@ -1,7 +1,7 @@
 package mapper;
 
 import modelo.Comentario;
-import modelo.Campaña;
+import modelo.Campana;
 
 import dto.ComentarioDto;
 import dto.CampanaDto;
@@ -26,7 +26,7 @@ public class ComentarioMapper {
 
     // Mapper para convertir de ComentarioDto a Comentario (Entidad)
     public static Comentario dtoToComentario(ComentarioDto comentarioDto) {
-        Campaña campaña = dtoToCampaña(comentarioDto.campaña());
+        Campana campaña = dtoToCampaña(comentarioDto.campaña());
         return new Comentario(
             comentarioDto.id(),
             comentarioDto.contenido(),
@@ -38,7 +38,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de Campaña a CampañaDto
-    public static CampanaDto campañaToDto(Campaña campaña) {
+    public static CampanaDto campañaToDto(Campana campaña) {
         return new CampanaDto(
             campaña.getId(),
             campaña.getNombre(),
@@ -47,8 +47,8 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de CampañaDto a Campaña (Entidad)
-    public static Campaña dtoToCampaña(CampanaDto campañaDto) {
-        return new Campaña(
+    public static Campana dtoToCampaña(CampanaDto campañaDto) {
+        return new Campana(
             campañaDto.id(),
             campañaDto.nombre(),
             dtoToUsuario(campañaDto.usuarioDto())
