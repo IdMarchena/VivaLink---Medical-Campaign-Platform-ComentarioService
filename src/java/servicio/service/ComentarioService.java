@@ -1,5 +1,5 @@
 package servicio.service;
-import dto.CampañaDto;
+import dto.CampanaDto;
 import dto.ComentarioDto;
 import dto.UsuarioDto;
 import java.util.List;
@@ -30,7 +30,7 @@ public interface ComentarioService {
 
     List<ComentarioDto> buscarPorEstado(String estado);
     
-    CampañaDto buscarCampañPorId(int campañaId);
+    CampanaDto buscarCampañPorId(int campañaId);
     
     UsuarioDto buscarUsuarioPorId(int UsuarioId);
 }
