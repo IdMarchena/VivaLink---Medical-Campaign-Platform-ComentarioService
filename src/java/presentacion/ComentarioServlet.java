@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import com.google.gson.Gson;
-import dto.CampañaDto;
+import dto.CampanaDto;
 import dto.UsuarioDto;
 import java.time.LocalDate;
 
@@ -101,7 +101,7 @@ public class ComentarioServlet extends HttpServlet {
             int usuarioId = Integer.parseInt(usuarioIdStr);
 
             // Verificar que la campaña existe
-            CampañaDto campaña = comentarioService.buscarCampañPorId(campañaId);
+            CampanaDto campaña = comentarioService.buscarCampañPorId(campañaId);
             if (campaña == null) {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 response.getWriter().write(gson.toJson("La campaña no existe"));
@@ -446,7 +446,7 @@ public class ComentarioServlet extends HttpServlet {
         
         try {
             int campañaId = Integer.parseInt(campañaIdStr);
-            CampañaDto campaña = comentarioService.buscarCampañPorId(campañaId);
+            CampanaDto campaña = comentarioService.buscarCampañPorId(campañaId);
             
             if (campaña != null) {
                 response.getWriter().write(gson.toJson(campaña));
