@@ -3,7 +3,7 @@ package dao;
 
 import modelo.Comentario;
 import modelo.Usuario;
-import modelo.Campaña;
+import modelo.Campana;
 import java.util.List;
 
 public interface ComentarioDao {
@@ -27,5 +27,5 @@ public interface ComentarioDao {
     
     
     Usuario buscarUsuarioPorId(int id);
-    Campaña buscarCampañaPorId(int id);
+    Campana buscarCampañaPorId(int id);
 }
