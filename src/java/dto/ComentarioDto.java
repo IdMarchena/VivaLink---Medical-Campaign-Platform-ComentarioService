@@ -5,7 +5,7 @@
 package dto;
 
 import java.time.LocalDate;
-import modelo.Campaña;
+import modelo.Campana;
 
 /**
  *
