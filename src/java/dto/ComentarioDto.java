@@ -16,6 +16,6 @@ public record ComentarioDto(int id,
                             LocalDate fechaCreacion,
                             LocalDate fechaActualizacion,
                             String estado, 
-                            CampañaDto campaña) {
+                            CampanaDto campaña) {
 
 }
