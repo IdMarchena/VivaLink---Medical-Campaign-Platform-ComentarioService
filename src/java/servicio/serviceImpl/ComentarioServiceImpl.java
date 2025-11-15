@@ -1,5 +1,5 @@
 package servicio.serviceImpl;
-import dto.CampañaDto;
+import dto.CampanaDto;
 import dto.ComentarioDto;
 import dto.UsuarioDto;
 import java.sql.SQLException;
@@ -149,7 +149,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     }
 
     @Override
-    public CampañaDto buscarCampañPorId(int campañaId) {
+    public CampanaDto buscarCampañPorId(int campañaId) {
         if(campañaId >0){
             return ComentarioMapper.campañaToDto(comentarioRepository.buscarCampañaPorId(campañaId));
         }else {
