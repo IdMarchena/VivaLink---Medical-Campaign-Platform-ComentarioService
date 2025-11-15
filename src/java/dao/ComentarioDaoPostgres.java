@@ -1,7 +1,7 @@
 package dao;
 
 import modelo.Comentario;
-import modelo.Campaña;
+import modelo.Campana;
 import modelo.Usuario;
 import java.sql.*;
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class ComentarioDaoPostgres implements ComentarioDao {
                     rs.getInt("uId"),
                     rs.getString("uNombre")
                 );
-                Campaña campaña = new Campaña(
+                Campana campaña = new Campana(
                     rs.getInt("caId"),
                     rs.getString("caNombre"),
                     usuario
@@ -116,7 +116,7 @@ public class ComentarioDaoPostgres implements ComentarioDao {
                     rs.getInt("uId"),
                     rs.getString("uNombre")
                 );
-                Campaña campaña = new Campaña(
+                Campana campaña = new Campana(
                     rs.getInt("caId"),
                     rs.getString("caNombre"),
                     usuario
@@ -311,7 +311,7 @@ public class ComentarioDaoPostgres implements ComentarioDao {
     }
 
     @Override
-    public Campaña buscarCampañaPorId(int id) {
+    public Campana buscarCampañaPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
