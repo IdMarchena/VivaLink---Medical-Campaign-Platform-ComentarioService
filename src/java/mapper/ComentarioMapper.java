@@ -4,7 +4,7 @@ import modelo.Comentario;
 import modelo.Campaña;
 
 import dto.ComentarioDto;
-import dto.CampañaDto;
+import dto.CampanaDto;
 import dto.UsuarioDto;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +12,7 @@ import modelo.Usuario;
 
 public class ComentarioMapper {
     public static ComentarioDto comentarioToDto(Comentario comentario) {
-        CampañaDto campañaDto = campañaToDto(comentario.getCampaña());
+        CampanaDto campañaDto = campañaToDto(comentario.getCampaña());
         return new ComentarioDto(
             comentario.getId(),
             comentario.getContenido(),
@@ -38,8 +38,8 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de Campaña a CampañaDto
-    public static CampañaDto campañaToDto(Campaña campaña) {
-        return new CampañaDto(
+    public static CampanaDto campañaToDto(Campaña campaña) {
+        return new CampanaDto(
             campaña.getId(),
             campaña.getNombre(),
             usuarioToDto(campaña.getUsuario())
@@ -47,7 +47,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de CampañaDto a Campaña (Entidad)
-    public static Campaña dtoToCampaña(CampañaDto campañaDto) {
+    public static Campaña dtoToCampaña(CampanaDto campañaDto) {
         return new Campaña(
             campañaDto.id(),
             campañaDto.nombre(),
