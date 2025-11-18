@@ -13,14 +13,16 @@ import servicio.service.ComentarioService;
 public class ComentarioServiceImpl implements ComentarioService {
 
     private final ComentarioRepository comentarioRepository;
+    private final ComentarioMapper mapper;
 
-    public ComentarioServiceImpl(String tipo) throws SQLException {
-        this.comentarioRepository= new ComentarioRepository(tipo);
+    public ComentarioServiceImpl() throws SQLException {
+        this.comentarioRepository= new ComentarioRepository();
+        this.mapper = new ComentarioMapper();
     }
 
     @Override
     public void guardar(ComentarioDto comentarioDto) {
-        Comentario comentario = ComentarioMapper.dtoToComentario(comentarioDto);
+        Comentario comentario = mapper.dtoToComentario(comentarioDto);
         if(comentario !=null){
             comentarioRepository.guardar(comentario);
         }
@@ -28,26 +30,21 @@ public class ComentarioServiceImpl implements ComentarioService {
 
     @Override
     public ComentarioDto buscarPorId(int id) {
-        if(id<0){
-            Comentario comentario = comentarioRepository.buscarPorId(id);
-            return (comentario != null) ? ComentarioMapper.comentarioToDto(comentario) : null;
-        } else {
-            return null;
-        }
+        return mapper.comentarioToDto(comentarioRepository.buscarPorId(id));
     }
 
     @Override
     public List<ComentarioDto> listarTodos() {
         return comentarioRepository.listarTodos()
                 .stream()
-                .map(ComentarioMapper::comentarioToDto)
+                .map(mapper::comentarioToDto)
                 .collect(Collectors.toList());
     }
 
     @Override
     public boolean actualizar(ComentarioDto comentarioDto) {
         if(comentarioDto !=null){
-            Comentario comentario = ComentarioMapper.dtoToComentario(comentarioDto);
+            Comentario comentario = mapper.dtoToComentario(comentarioDto);
             return comentarioRepository.actualizar(comentario);
         }else {
             return false;
@@ -70,7 +67,7 @@ public class ComentarioServiceImpl implements ComentarioService {
         if(campañaId >0){
             return comentarioRepository.buscarPorCampaña(campañaId)
                 .stream()
-                .map(ComentarioMapper::comentarioToDto)
+                .map(mapper::comentarioToDto)
                 .collect(Collectors.toList());
         }else {
             return null;
@@ -83,7 +80,7 @@ public class ComentarioServiceImpl implements ComentarioService {
         if(usuarioId >0){
             return comentarioRepository.buscarPorUsuario(usuarioId)
                 .stream()
-                .map(ComentarioMapper::comentarioToDto)
+                .map(mapper::comentarioToDto)
                 .collect(Collectors.toList());
 
         } else {
@@ -96,7 +93,7 @@ public class ComentarioServiceImpl implements ComentarioService {
         if(campañaId >0 && !"".equals(estado)){
             return comentarioRepository.buscarPorCampañaYEstado(campañaId, estado)
                 .stream()
-                .map(ComentarioMapper::comentarioToDto)
+                .map(mapper::comentarioToDto)
                 .collect(Collectors.toList());
         } else {
             return null;
@@ -128,7 +125,7 @@ public class ComentarioServiceImpl implements ComentarioService {
         if(!"".equals(contenido)){
             return comentarioRepository.buscarPorContenido(contenido)
                 .stream()
-                .map(ComentarioMapper::comentarioToDto)
+                .map(mapper::comentarioToDto)
                 .collect(Collectors.toList());
         } else {
             return null;
@@ -141,7 +138,7 @@ public class ComentarioServiceImpl implements ComentarioService {
         if(!"".equals(estado)){
             return comentarioRepository.buscarPorEstado(estado)
                 .stream()
-                .map(ComentarioMapper::comentarioToDto)
+                .map(mapper::comentarioToDto)
                 .collect(Collectors.toList());
         } else {
             return null;
@@ -151,7 +148,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     @Override
     public CampanaDto buscarCampañPorId(int campañaId) {
         if(campañaId >0){
-            return ComentarioMapper.campañaToDto(comentarioRepository.buscarCampañaPorId(campañaId));
+            return mapper.campañaToDto(comentarioRepository.buscarCampañaPorId(campañaId));
         }else {
             return null;
         }
@@ -160,7 +157,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     @Override
     public UsuarioDto buscarUsuarioPorId(int UsuarioId) {
         if(UsuarioId >0){
-            return ComentarioMapper.usuarioToDto(comentarioRepository.buscarUsuarioPorId(UsuarioId));
+            return mapper.usuarioToDto(comentarioRepository.buscarUsuarioPorId(UsuarioId));
         }else {
             return null;
         }

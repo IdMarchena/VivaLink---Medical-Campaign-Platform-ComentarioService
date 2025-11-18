@@ -15,9 +15,9 @@ import modelo.Usuario;
 public class ComentarioDaoMysql implements ComentarioDao {
     private final Connection conn;
 
-    public ComentarioDaoMysql(String tipoDb) throws SQLException {
-        DatabaseConnection dbConnection = DatabaseConnectionFactory.connection(tipoDb);
-        this.conn = dbConnection.getConection();
+    public ComentarioDaoMysql(DatabaseConnection connection) throws SQLException {
+        DatabaseConnection db = DatabaseConnectionFactory.connection("mysql");
+        this.conn = db.getConnection();
     }
 
     @Override

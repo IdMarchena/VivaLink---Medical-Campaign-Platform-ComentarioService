@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import modelo.Usuario;
 
 public class ComentarioMapper {
-    public static ComentarioDto comentarioToDto(Comentario comentario) {
+    public ComentarioDto comentarioToDto(Comentario comentario) {
         CampanaDto campañaDto = campañaToDto(comentario.getCampaña());
         return new ComentarioDto(
             comentario.getId(),
@@ -25,7 +25,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de ComentarioDto a Comentario (Entidad)
-    public static Comentario dtoToComentario(ComentarioDto comentarioDto) {
+    public Comentario dtoToComentario(ComentarioDto comentarioDto) {
         Campana campaña = dtoToCampaña(comentarioDto.campaña());
         return new Comentario(
             comentarioDto.id(),
@@ -38,7 +38,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de Campaña a CampañaDto
-    public static CampanaDto campañaToDto(Campana campaña) {
+    public CampanaDto campañaToDto(Campana campaña) {
         return new CampanaDto(
             campaña.getId(),
             campaña.getNombre(),
@@ -47,7 +47,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de CampañaDto a Campaña (Entidad)
-    public static Campana dtoToCampaña(CampanaDto campañaDto) {
+    public Campana dtoToCampaña(CampanaDto campañaDto) {
         return new Campana(
             campañaDto.id(),
             campañaDto.nombre(),
@@ -56,7 +56,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de Usuario a UsuarioDto
-    public static UsuarioDto usuarioToDto(Usuario usuario) {
+    public UsuarioDto usuarioToDto(Usuario usuario) {
         return new UsuarioDto(
             usuario.getId(),
             usuario.getNombre()
@@ -64,7 +64,7 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de UsuarioDto a Usuario (Entidad)
-    public static Usuario dtoToUsuario(UsuarioDto usuarioDto) {
+    public Usuario dtoToUsuario(UsuarioDto usuarioDto) {
         return new Usuario(
             usuarioDto.id(),
             usuarioDto.nombre()
@@ -72,16 +72,16 @@ public class ComentarioMapper {
     }
 
     // Mapper para convertir de una lista de Reporte a una lista de ReporteDto
-    public static List<ComentarioDto> entityListToDtoList(List<Comentario> entityList) {
+    public List<ComentarioDto> entityListToDtoList(List<Comentario> entityList) {
         return entityList.stream()
-            .map(ComentarioMapper::comentarioToDto)
+            .map(this::comentarioToDto)
             .collect(Collectors.toList());
     }
 
     // Mapper para convertir de una lista de ReporteDto a una lista de Reporte
-    public static List<Comentario> dtoListToEntityList(List<ComentarioDto> dtoList) {
+    public List<Comentario> dtoListToEntityList(List<ComentarioDto> dtoList) {
         return dtoList.stream()
-            .map(ComentarioMapper::dtoToComentario)
+            .map(this::dtoToComentario)
             .collect(Collectors.toList());
     }
 

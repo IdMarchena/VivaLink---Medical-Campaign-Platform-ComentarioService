@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dao.connection;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class PostgreConnection implements DatabaseConnection{
         private Connection connection;
-    private static final String URL="jdbc://postgresql://localhost:5432/ComentarioService";
+    private static final String URL="jdbc:postgresql://localhost:5432/ComentarioService";
     private static final String USER="postgres";
     private static final String PASSWORD="12345678";
 
@@ -30,7 +29,7 @@ public class PostgreConnection implements DatabaseConnection{
     }
 
     @Override
-    public Connection getConection() {
+    public Connection getConnection() {
         try {
             return conexion();
         } catch (SQLException ex) {

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dto.CampanaDto;
 import dto.UsuarioDto;
 import java.time.LocalDate;
@@ -24,8 +25,13 @@ public class ComentarioServlet extends HttpServlet {
 
     // Constructor
     public ComentarioServlet() throws SQLException {
-        this.comentarioService = new ComentarioServiceImpl("TipoDb");
-        this.gson = new Gson();
+        this.comentarioService = new ComentarioServiceImpl();
+        
+        // Configurar Gson con el adaptador para LocalDate
+        this.gson = new GsonBuilder()
+            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+            .setDateFormat("yyyy-MM-dd")
+            .create();
     }
 
     // Método para procesar las peticiones

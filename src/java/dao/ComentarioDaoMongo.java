@@ -19,11 +19,11 @@ import modelo.Usuario;
  * @author Usuario
  */
 public class ComentarioDaoMongo implements ComentarioDao{
-    private final Connection conexion;
-    
-    public ComentarioDaoMongo(String tipoDb) throws SQLException {
-        DatabaseConnection dbConnection = DatabaseConnectionFactory.connection(tipoDb);
-        this.conexion = dbConnection.getConection();
+    private final Connection conn;
+
+    public ComentarioDaoMongo(DatabaseConnection connection) throws SQLException {
+        DatabaseConnection db = DatabaseConnectionFactory.connection("mongo");
+        this.conn = db.getConnection();
     }
 
     @Override

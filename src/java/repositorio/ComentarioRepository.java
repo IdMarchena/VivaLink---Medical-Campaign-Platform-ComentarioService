@@ -18,8 +18,8 @@ import modelo.Usuario;
 public class ComentarioRepository {
     private final ComentarioDao comentarioDao;
     
-    public ComentarioRepository(String tipo) throws SQLException{
-        this.comentarioDao= ComentarioDaoFactory.dao(tipo);
+    public ComentarioRepository() throws SQLException{
+        comentarioDao= ComentarioDaoFactory.dao("postgres");
     }
     
     public void guardar(Comentario comentario){
